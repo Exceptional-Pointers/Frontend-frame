@@ -1,34 +1,31 @@
-// Set constraints for the video stream
-var constraints = {
-    video: {
-        facingMode: "user"
-    },
-    audio: false
-};
-// Define constants
-const cameraView = document.querySelector("#camera--view"),
-    cameraOutput = document.querySelector("#camera--output"),
-    cameraSensor = document.querySelector("#camera--sensor"),
-    cameraTrigger = document.querySelector("#camera--trigger")
-// Access the device camera and stream to cameraView
-function cameraStart() {
-    navigator.mediaDevices
-        .getUserMedia(constraints)
-        .then(function (stream) {
-            track = stream.getTracks()[0];
-            cameraView.srcObject = stream;
-        })
-        .catch(function (error) {
-            console.error("Oops. Something is broken.", error);
-        });
-}
-// Take a picture when cameraTrigger is tapped
-cameraTrigger.onclick = function () {
-    cameraSensor.width = cameraView.videoWidth;
-    cameraSensor.height = cameraView.videoHeight;
-    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-    cameraOutput.src = cameraSensor.toDataURL("image/webp");
-    cameraOutput.classList.add("taken");
-};
-// Start the video stream when the window loads
-window.addEventListener("load", cameraStart, false);
+const video = document.querySelector('video');
+const mediaToggle = document.querySelectorAll('.stream__media-control');
+// const switchVideoLabel = document.querySelector('.stream__mediaControl-video label');
+// const switchVideoToggle = document.querySelector('.stream__mediaControl-video span');
+
+mediaToggle.forEach((media) => {
+    const mediaLabel = media.querySelector('label')
+    mediaLabel.addEventListener('click', function () {
+        media.querySelector('span').classList.toggle('active');
+        if (mediaLabel.getAttribute('for') == 'video-toggle') {
+            stream.getTracks().forEach(function (track) {
+                if (track.readyState == 'live' && track.kind === 'video') {
+                    track.enabled = false;
+                    console.log('stoped', track.readyState);
+                } else if (track.readyState == 'ended' && track.kind === 'video') {
+                    track.readyState = 'live'
+                    console.log('sytart', track.readyState, track);
+                    track.enabled = true;
+                }
+            });
+        }
+
+    })
+})
+
+
+navigator.mediaDevices.getUserMedia({
+    video: true
+}).then((stream) => {
+    video.srcObject = stream;
+})

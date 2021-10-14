@@ -1,81 +1,111 @@
-<html lang=”en”>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Name of your awesome camera app -->
-    <title>Camera App</title>
-    <!-- Link to your main style sheet-->
-    <link rel="stylesheet" href="style.css">
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-        }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet - 🔴 Conference </title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.svg" />
+    <!-- Place favicon.ico in the root directory -->
 
-        #camera,
-        #camera--view,
-        #camera--sensor,
-        #camera--output {
-            position: fixed;
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        #camera--view,
-        #camera--sensor,
-        #camera--output {
-            transform: scaleX(-1);
-            filter: FlipH;
-        }
-
-        #camera--trigger {
-            width: 200px;
-            background-color: black;
-            color: white;
-            font-size: 16px;
-            border-radius: 30px;
-            border: none;
-            padding: 15px 20px;
-            text-align: center;
-            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
-            position: fixed;
-            bottom: 30px;
-            left: calc(50% - 100px);
-        }
-
-        .taken {
-            height: 100px !important;
-            width: 100px !important;
-            transition: all 0.5s ease-in;
-            border: solid 3px white;
-            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
-            top: 20px;
-            right: 20px;
-            z-index: 2;
-        }
-    </style>
+    <!-- ======== CSS here ======== -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/meet.css" />
 </head>
 
 <body>
-    <!-- Camera -->
-    <main id="camera">
-        <!-- Camera sensor -->
-        <canvas id="camera--sensor"></canvas>
-        <!-- Camera view -->
-        <video id="camera--view" autoplay playsinline></video>
-        <!-- Camera output -->
-        <img src="//:0" alt="" id="camera--output">
-        <!-- Camera trigger -->
-        <button id="camera--trigger">Take a picture</button>
-    </main>
-    <!-- Reference to your JavaScript file -->
-    <script src="camera.js"></script>
+    <div class="settings">
+        <div class="settings__close">
+            <i class="lni lni-close"></i>
+        </div>
+        <h1 class="settings__header">Device Settings</h1>
+        <div class="settings__body">
+            <div class="mb-3 settings__audio">
+                <label for="audioDevice" class="form-label">Microphone</label>
+                <select class="form-select" id="audioSource" aria-label="Default select example">
+                </select>
+            </div>
+            <div class="mb-3 settings__speaker">
+                <label for="audioDevice" class="form-label">Speaker</label>
+                <select class="form-select" id="audioOutput" aria-label="Default select example">
+                </select>
+            </div>
+            <div class="mb-3 settings__camera">
+                <label for="audioDevice" class="form-label">Camera</label>
+                <select class="form-select" id="videoSource" aria-label="Default select example">
+                </select>
+            </div>
+
+        </div>
+        <div class="settings__bottom">
+            <button class="btn btn-danger">
+                <i class="lni lni-phone"></i>
+                End Meet
+            </button>
+        </div>
+    </div>
+    <div class="stream">
+        <div class="stream__header">
+            <p>
+                Choose your audio and video settings for
+            </p>
+            <h1>
+                Meeting Now
+            </h1>
+        </div>
+        <div class="stream__body">
+            <video autoplay></video>
+            <div class="stream__overlay"></div>
+            <div class="stream__controls">
+                <div class="stream__name">
+                    <input class="form-control" type="text" placeholder="Enter Name">
+                    <button class="btn btn-primary">Join Now</button>
+                </div>
+                <div class="stream__media">
+                    <div class="stream__media-control">
+                        <div class="icon">
+                            <i class="lni lni-video"></i>
+                        </div>
+                        <input type="checkbox" name="" id="video-toggle">
+                        <label for="video-toggle">
+                            <span class="span-btn">
+                            </span>
+                        </label>
+                    </div>
+                    <div class="stream__media-control">
+                        <div class="icon">
+                            <i class="lni lni-mic"></i>
+                        </div>
+                        <input type="checkbox" name="" id="audio-toggle">
+                        <label for="audio-toggle">
+                            <span class="span-btn">
+                            </span>
+                        </label>
+                    </div>
+                    <div class="stream__media-custom">
+                        <div class="icon">
+                            <i class="lni lni-cog"></i>
+                        </div>
+                        <label for="custom-setup">
+                            custom setup
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== JS here ======== -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="./assets/js/camera.js"></script>
+    <script src="./test.js"></script>
+
 </body>
 
 </html>
