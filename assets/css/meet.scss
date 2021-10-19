@@ -1,3 +1,7 @@
+.no-scroll {
+    overflow: hidden;
+}
+
 .stream {
     background: #0d0022;
     color: #fff;
@@ -167,18 +171,25 @@
 .settings {
     position: fixed;
     top: 0;
-    right: 0;
+    right: -350px;
     width: 330px;
     height: 100vh;
     overflow-y: auto;
     padding: 2rem;
+    z-index: 3;
     background: whitesmoke;
+    transition: all .3s ease;
+
+    &.active {
+        top: 0;
+        right: 0;
+    }
 
     &__close {
         position: absolute;
         top: 2rem;
         right: 2rem;
-
+        cursor: pointer;
     }
 
     &__header {
@@ -203,5 +214,20 @@
         button {
             width: 100%;
         }
+    }
+}
+
+.settingsOverlay {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: #c4c4c475;
+
+    &.active {
+        display: block;
     }
 }
