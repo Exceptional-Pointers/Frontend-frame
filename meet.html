@@ -15,11 +15,11 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/lineicons.css" />
     <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/meet.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body class="camera-page-body">
-
+    <!-- Setting For Video, Mic and Speaker Selection -->
     <div class="settingsOverlay"></div>
     <div class="settings">
         <div class="settings__close">
@@ -51,6 +51,7 @@
             </button>
         </div>
     </div>
+    <!-- Pre Conference Window for name and Video and Audio on and off -->
     <div class="stream">
         <div class="stream__header">
             <p>
@@ -97,6 +98,186 @@
                         <label for="custom-setup">
                             custom setup
                         </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Conference Starts Here -->
+    <div class="conference">
+        <div class="conference-container">
+            <div class="conference-col-2">
+                <div class="conference__navigation">
+                    <div class="conference__navigation--logo">
+                        <img src="./assets/img/logo/logo-color-square.svg" alt="">
+                    </div>
+                    <ul class="conference__navigation--nav">
+                        <li class="conference__navigation--nav-item">
+                            <a href="" class="conference__navigation--nav-link">
+                                <i class="lni lni-grid-alt"></i>
+                            </a>
+                        </li>
+                        <li class="conference__navigation--nav-item">
+                            <a href="" class="conference__navigation--nav-link">
+                                <i class="lni lni-calendar"></i>
+                            </a>
+                        </li>
+                        <li class="conference__navigation--nav-item">
+                            <a href="" class="conference__navigation--nav-link active">
+                                <i class="lni lni-video"></i>
+                            </a>
+                        </li>
+                        <li class="conference__navigation--nav-item">
+                            <a href="" class="conference__navigation--nav-link">
+                                <i class="lni lni-music"></i>
+                            </a>
+                        </li>
+                        <li class="conference__navigation--nav-item">
+                            <a href="" class="conference__navigation--nav-link">
+                                <i class="lni lni-bar-chart"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="conference__window">
+                    <div class="conference__heading">
+                        <h2 class="conference__heading--title">
+                            UI/UX Design weekly update
+                        </h2>
+                        <div class="conference__heading--tag">
+                            <i class="lni lni-slideshare"></i> Design Team
+                        </div>
+                        <div class="conference__heading--user">
+                            <div class="conference__heading--user-img">
+                                <img src="./assets/img/meet/avatar-girl.png" alt="">
+                            </div>
+                            <p class="conference__heading--user-name">
+                                Archana <i class="lni lni-chevron-down"></i>
+                            </p>
+                            <div class="conference__heading--user-details">
+                                <div class="conference__heading--user-details-close custom-btn-google"><i
+                                        class="lni lni-close"></i></div>
+                                <h4 class="conference__heading--user-details-title">Your meeting's ready</h4>
+                                <button class="btn btn-primary btn-sm conference__heading--user-details-adduser">
+                                    <i class="lni lni-user"></i>Add others
+                                </button>
+                                <div class="conference__heading--user-details-announcement">
+                                    or share the meet link with other that you want in the meet
+                                </div>
+                                <div class="conference__heading--user-details-join_code">
+                                    <div type="text" class="form-control">
+                                        meet.fleet.com/zhj-noas-upj
+                                    </div>
+                                    <button class="custom-btn-google"><i class="lni lni-empty-file"></i></button>
+                                </div>
+                                <div class="conference__heading--user-details-notice">
+                                    <i class="lni lni-lock-alt"></i>
+                                    People who join the meet must get your permission
+                                    before they can join.
+                                </div>
+                                <div class="conference__heading--user-details-joinedas">
+                                    Joined as <span>archana@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conference__cameras">
+                        <div class="conference__cameras--layout">
+                            <img src="./assets/img/meet/video-demo.jpg" alt="">
+                        </div>
+                        <div class="conference__cameras--controls">
+                            <div class="conference__cameras--controls-video">
+                                <i class="lni lni-video"></i>
+                            </div>
+                            <div class="conference__cameras--controls-mic">
+                                <i class="lni lni-mic"></i>
+                            </div>
+                            <div class="conference__cameras--controls-end">
+                                <i class="lni lni-phone"></i>
+                            </div>
+                            <div class="conference__cameras--controls-focus">
+                                <i class="lni lni-frame-expand"></i>
+                            </div>
+                            <div class="dropdown conference__cameras--controls-settings">
+                                <div class="" id="conferenceControls" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="lni lni-more"></i>
+                                </div>
+                                <ul class="dropdown-menu" aria-labelledby="conferenceControls">
+                                    <li>
+                                        <div class="dropdown-item conference__cameras--controls-speaker">
+                                            <i class="lni lni-cog"></i> Device Settings
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item conference__cameras--controls-whiteboard">
+                                            <i class="lni lni-blackboard"></i> WhiteBoard
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item conference__cameras--controls-record">
+                                            <i class="lni lni-play"></i> Screen Record
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item conference__cameras--controls-speaker">
+                                            <i class="lni lni-volume-medium"></i> Speaker
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="conference-col-1">
+                <div class="conference-rside">
+                    <h4 class="conference-rside-name">Group Chat</h4>
+                    <div class="conference-rside-buttons">
+                        <button class="btn btn-success btn-sm">Messages</button>
+                        <button class="btn btn-light btn-sm">Participants</button>
+                    </div>
+                </div>
+                <div class="conference__chat">
+                    <div class="conference__chat--items">
+                        <div class="conference__chat--item">
+                            <div class="conference__chat--item-icon">
+                                <img src="./assets/img/meet/user-1.jpg" alt="">
+                            </div>
+                            <div class="conference__chat--item-message">Hey everyone, let's start the call now</div>
+                            <div class="conference__chat--item-detail">10:00 am, Alexa</div>
+                        </div>
+                        <div class="conference__chat--item">
+                            <div class="conference__chat--item-icon">
+                                <img src="./assets/img/meet/user-3.jpg" alt="">
+                            </div>
+                            <div class="conference__chat--item-message">Hey we are waiting 🙄</div>
+                            <div class="conference__chat--item-detail">10:03 am, Martin</div>
+                        </div>
+                        <div class="conference__chat--item conference__chat--item-user">
+                            <div class="conference__chat--item-icon">
+                                <img src="./assets/img/meet/user-5.jpg" alt="">
+                            </div>
+                            <div class="conference__chat--item-message">
+                                I am calling for oyher people to join, just a littile wait and we'll be in the meet.
+                            </div>
+                            <div class="conference__chat--item-detail">10:00 am, Lousi</div>
+                        </div>
+                        <div class="conference__chat--item">
+                            <div class="conference__chat--item-icon">
+                                <img src="./assets/img/meet/user-4.jpg" alt="">
+                            </div>
+                            <div class="conference__chat--item-message">
+                                Ok! So let's start!
+                            </div>
+                            <div class="conference__chat--item-detail">10:00 am, Feonsi</div>
+                        </div>
+                    </div>
+                    <div class="conference__chat--box">
+                        <input type="text" placeholder="Type message" id="chatInput"
+                            class="form-control conference__chat--box-input">
+                        <button class="btn conference__chat--box-send">
+                            <i class="lni lni-telegram-original"></i>
+                        </button>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Open+Sans&display=swap");
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arimo;
+    font-weight: normal;
+    font-style: normal;
+    color: #5B657E;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.custom-btn-google {
+    background: radial-gradient(#c5c5c5 0, transparent 0, transparent);
+    border: unset;
+    outline: unset;
+    border-radius: 50%;
+    transition: all .3s ease;
+
+
+    &:hover {
+        background: #dddddd;
+    }
+
+    &:active {
+        background: #c5c5c5;
+    }
+}
