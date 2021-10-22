@@ -73,3 +73,29 @@ mediaSettingCloseBtn.addEventListener('click', () => {
     mediaSettingOverlay.classList.remove('active')
     cameraPageBody.classList.remove('no-scroll')
 })
+
+// conference info popup
+const userProfile = document.querySelector('.conference__heading--user')
+const conferenceInfo = document.querySelector('.conference__info')
+const conferenceInfoClose = document.querySelector('.conference__info-close')
+
+userProfile.addEventListener('click', _ => conferenceInfo.classList.add('active'))
+conferenceInfoClose.addEventListener('click', _ => conferenceInfo.classList.remove('active'))
+
+// Copy Meet code in Info Settings
+const meetCode = document.querySelector('#codeMeetJoin')
+const meetCodeUrl = document.querySelector('#codeMeetJoin')
+const meetCodeCopyBtn = document.querySelector('#meetInfoCopyBtn')
+
+meetCodeCopyBtn.addEventListener('click', () => {
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(meetCodeUrl.textContent);
+
+    /* Toast Initialize */
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function (toastEl) {
+        return new bootstrap.Toast(toastEl)
+    });
+    toastList.forEach(toast => toast.show()); // This show them
+})

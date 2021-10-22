@@ -39,3 +39,22 @@ body {
         background: #c5c5c5;
     }
 }
+
+.custom-btn-primary {
+    background: $color-primary;
+    color: #fff;
+    border: unset;
+    outline: unset;
+    transition: all .3s ease;
+
+
+    &:hover {
+        background: $color-primary-dark;
+        color: #fff;
+    }
+
+    &:active {
+        background: $color-primary-dark;
+        color: #fff;
+    }
+}

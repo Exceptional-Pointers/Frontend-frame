@@ -19,6 +19,46 @@
 </head>
 
 <body class="camera-page-body">
+
+    <!-- Toast for copying the Conference info -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div class="toast-container">
+            <div class="toast align-items-center" data-bs-delay="500" role="alert" aria-live="assertive"
+                aria-atomic="true">
+                <div class="d-flex bg-dark text-white">
+                    <div class="toast-body">
+                        Copied
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto text-white" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Meet Share Info Modal -->
+    <div class="conference__info">
+        <div class="conference__info-close custom-btn-google"><i class="lni lni-close"></i></div>
+        <h4 class="conference__info-title">Your meeting's ready</h4>
+        <button class="btn custom-btn-primary conference__info-adduser">
+            <i class="lni lni-user"></i>Add others
+        </button>
+        <div class="conference__info-announcement">
+            or share the meet link with other that you want in the meet
+        </div>
+        <div class="conference__info-join_code">
+            <div type="text" class="form-control" id="codeMeetJoin">meet.fleet.com/zhj-noas-upj</div>
+            <button class="custom-btn-google" id="meetInfoCopyBtn"><i class="lni lni-empty-file"></i></button>
+        </div>
+        <div class="conference__info-notice">
+            <i class="lni lni-lock-alt"></i>
+            People who join the meet must get your permission
+            before they can join.
+        </div>
+        <div class="conference__info-joinedas">
+            Joined as <span>archana@gmail.com</span>
+        </div>
+    </div>
     <!-- Setting For Video, Mic and Speaker Selection -->
     <div class="settingsOverlay"></div>
     <div class="settings">
@@ -154,31 +194,6 @@
                             <p class="conference__heading--user-name">
                                 Archana <i class="lni lni-chevron-down"></i>
                             </p>
-                            <div class="conference__heading--user-details">
-                                <div class="conference__heading--user-details-close custom-btn-google"><i
-                                        class="lni lni-close"></i></div>
-                                <h4 class="conference__heading--user-details-title">Your meeting's ready</h4>
-                                <button class="btn btn-primary btn-sm conference__heading--user-details-adduser">
-                                    <i class="lni lni-user"></i>Add others
-                                </button>
-                                <div class="conference__heading--user-details-announcement">
-                                    or share the meet link with other that you want in the meet
-                                </div>
-                                <div class="conference__heading--user-details-join_code">
-                                    <div type="text" class="form-control">
-                                        meet.fleet.com/zhj-noas-upj
-                                    </div>
-                                    <button class="custom-btn-google"><i class="lni lni-empty-file"></i></button>
-                                </div>
-                                <div class="conference__heading--user-details-notice">
-                                    <i class="lni lni-lock-alt"></i>
-                                    People who join the meet must get your permission
-                                    before they can join.
-                                </div>
-                                <div class="conference__heading--user-details-joinedas">
-                                    Joined as <span>archana@gmail.com</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="conference__cameras">
@@ -233,7 +248,7 @@
                 <div class="conference-rside">
                     <h4 class="conference-rside-name">Group Chat</h4>
                     <div class="conference-rside-buttons">
-                        <button class="btn btn-success btn-sm">Messages</button>
+                        <button class="btn custom-btn-primary btn-sm">Messages</button>
                         <button class="btn btn-light btn-sm">Participants</button>
                     </div>
                 </div>

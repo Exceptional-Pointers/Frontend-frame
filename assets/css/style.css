@@ -29,6 +29,19 @@ body {
   .custom-btn-google:active {
     background: #c5c5c5; }
 
+.custom-btn-primary {
+  background: #0e9e8b;
+  color: #fff;
+  border: unset;
+  outline: unset;
+  transition: all .3s ease; }
+  .custom-btn-primary:hover {
+    background: #007969;
+    color: #fff; }
+  .custom-btn-primary:active {
+    background: #007969;
+    color: #fff; }
+
 .stream {
   background: #0d0022;
   color: #fff;
@@ -193,9 +206,11 @@ body {
     } */ }
 
 .conference-container {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: stretch; }
+  .conference-container > * {
+    height: 100%; }
 
 .conference-col-2 {
   flex-basis: 70%;
@@ -255,7 +270,7 @@ body {
 
 .conference__heading {
   border-bottom: 2px solid #d1d1d163;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   align-items: center; }
   .conference__heading--title {
@@ -293,84 +308,18 @@ body {
     .conference__heading--user-name {
       margin: 0 5px;
       font-weight: 500; }
-    .conference__heading--user-details {
-      position: fixed;
-      top: 30px;
-      right: 30px;
-      z-index: 2;
-      width: 300px;
-      background: #fff;
-      box-shadow: 0 0 10px #5B657E;
-      padding: 20px 15px;
-      border-radius: 8px; }
-      .conference__heading--user-details-title {
-        font-size: 15px;
-        font-weight: 600; }
-      .conference__heading--user-details-adduser i {
-        margin-right: 5px; }
-      .conference__heading--user-details-announcement {
-        font-size: 14px;
-        font-weight: 500;
-        color: #353535;
-        line-height: 1.3;
-        margin-top: 5px; }
-      .conference__heading--user-details-join_code {
-        position: relative;
-        margin-top: 10px; }
-        .conference__heading--user-details-join_code .form-control {
-          background: #eeeded;
-          border: unset;
-          padding-right: 40px; }
-        .conference__heading--user-details-join_code button {
-          position: absolute;
-          width: 35px;
-          height: 35px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          right: 5px;
-          top: 50%;
-          transform: translateY(-50%); }
-      .conference__heading--user-details-notice {
-        display: flex;
-        align-items: center;
-        font-size: 10px;
-        font-weight: 500;
-        line-height: 1.1;
-        margin-top: 10px; }
-        .conference__heading--user-details-notice i {
-          padding: 5px;
-          color: #fff;
-          background: #0c92ff;
-          border-radius: 50%;
-          margin-right: 5px; }
-      .conference__heading--user-details-joinedas {
-        font-size: 14px;
-        color: #353535;
-        line-height: 1.3;
-        margin-top: 5px; }
-        .conference__heading--user-details-joinedas span {
-          font-weight: 600; }
-      .conference__heading--user-details-close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 45px;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center; }
 
 .conference__cameras {
+  flex: 1;
   background: #fff;
-  height: 100%;
   padding: 25px;
   position: relative; }
   .conference__cameras--layout {
+    height: 100%;
+    width: 100%;
     overflow: hidden;
     border-radius: 10px; }
     .conference__cameras--layout img {
-      width: 100%;
       height: 100%;
       object-fit: cover; }
   .conference__cameras--controls {
@@ -497,4 +446,87 @@ body {
     color: #fff; }
     .conference__chat--box-send:hover {
       color: #fff;
-      background: #0c92ff; }
+      background: #007969; }
+
+.conference__info {
+  position: fixed;
+  top: 0px;
+  right: -350px;
+  z-index: 2;
+  width: 330px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 0 10px #afb7ca;
+  padding: 25px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s; }
+  .conference__info-title {
+    font-size: 18px;
+    font-weight: 600; }
+  .conference__info-adduser {
+    margin-top: 15px; }
+    .conference__info-adduser i {
+      margin-right: 5px; }
+  .conference__info-announcement {
+    font-size: 16px;
+    font-weight: 500;
+    color: #353535;
+    line-height: 1.3;
+    margin-top: 15px; }
+  .conference__info-join_code {
+    position: relative;
+    margin-top: 15px; }
+    .conference__info-join_code .form-control {
+      background: #eeeded;
+      border: unset;
+      padding-right: 40px; }
+    .conference__info-join_code button {
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%); }
+  .conference__info-notice {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-top: 15px; }
+    .conference__info-notice i {
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      background: #007969;
+      border-radius: 50%;
+      margin-right: 5px; }
+  .conference__info-joinedas {
+    font-size: 14px;
+    color: #353535;
+    line-height: 1.3;
+    margin-top: auto; }
+    .conference__info-joinedas span {
+      font-weight: 600; }
+  .conference__info-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .conference__info.active {
+    top: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    visibility: visible; }
