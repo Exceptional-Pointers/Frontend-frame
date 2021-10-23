@@ -153,34 +153,36 @@
                     </div>
                     <ul class="conference__navigation--nav">
                         <li class="conference__navigation--nav-item">
-                            <a href="" class="conference__navigation--nav-link">
+                            <a id="conferenceHeaderToggleBtn" class="conference__navigation--nav-link">
                                 <i class="lni lni-grid-alt"></i>
                             </a>
                         </li>
                         <li class="conference__navigation--nav-item">
-                            <a href="" class="conference__navigation--nav-link">
+                            <a class="conference__navigation--nav-link">
                                 <i class="lni lni-calendar"></i>
                             </a>
                         </li>
                         <li class="conference__navigation--nav-item">
-                            <a href="" class="conference__navigation--nav-link active">
+                            <a class="conference__navigation--nav-link active">
                                 <i class="lni lni-video"></i>
                             </a>
                         </li>
                         <li class="conference__navigation--nav-item">
-                            <a href="" class="conference__navigation--nav-link">
+                            <a class="conference__navigation--nav-link">
                                 <i class="lni lni-music"></i>
                             </a>
                         </li>
                         <li class="conference__navigation--nav-item">
-                            <a href="" class="conference__navigation--nav-link">
+                            <a class="conference__navigation--nav-link">
                                 <i class="lni lni-bar-chart"></i>
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="conference__window">
-                    <div class="conference__heading">
+                    <div class="conference__heading active">
+                        <button class="conference__heading--toggle btn btn-light" disabled><i
+                                class="lni lni-chevron-up"></i></button>
                         <h2 class="conference__heading--title">
                             UI/UX Design weekly update
                         </h2>
@@ -198,7 +200,11 @@
                     </div>
                     <div class="conference__cameras">
                         <div class="conference__cameras--layout">
-                            <img src="./assets/img/meet/video-demo.jpg" alt="">
+                            <div class="custom-col">
+                                <video autoplay muted loop controls>
+                                    <source src="./assets/video/Girl - 27092.mp4" type="">
+                                </video>
+                            </div>
                         </div>
                         <div class="conference__cameras--controls">
                             <div class="conference__cameras--controls-video">

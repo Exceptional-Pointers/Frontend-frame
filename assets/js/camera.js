@@ -99,3 +99,11 @@ meetCodeCopyBtn.addEventListener('click', () => {
     });
     toastList.forEach(toast => toast.show()); // This show them
 })
+
+// Conference Header Toggle
+const conferenceHeader = document.querySelector('.conference__heading')
+const conferenceHeaderToggleBtn = document.querySelector('#conferenceHeaderToggleBtn')
+
+conferenceHeaderToggleBtn.addEventListener('click', () => {
+    conferenceHeader.classList.toggle('active')
+})

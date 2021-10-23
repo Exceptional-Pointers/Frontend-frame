@@ -255,14 +255,14 @@ body {
       justify-content: center;
       width: 40px;
       height: 40px;
-      padding: 10px; }
+      padding: 10px;
+      cursor: pointer; }
       .conference__navigation--nav-link:hover, .conference__navigation--nav-link.active {
         background: #d0ece9;
         color: #0e9e8b; }
 
 .conference__window {
   background: #fff;
-  padding: 0 15px;
   flex-basis: 100%;
   flex: 1;
   display: flex;
@@ -270,9 +270,14 @@ body {
 
 .conference__heading {
   border-bottom: 2px solid #d1d1d163;
-  padding: 15px;
-  display: flex;
+  padding: 15.5px;
+  display: none;
   align-items: center; }
+  .conference__heading.active {
+    display: flex; }
+  .conference__heading--toggle {
+    margin-right: 10px;
+    border: 3px solid #f1f1f1; }
   .conference__heading--title {
     font-size: 18px;
     font-weight: 600;
@@ -317,9 +322,11 @@ body {
   .conference__cameras--layout {
     height: 100%;
     width: 100%;
-    overflow: hidden;
-    border-radius: 10px; }
-    .conference__cameras--layout img {
+    display: flex;
+    align-items: center;
+    overflow: hidden; }
+    .conference__cameras--layout video {
+      width: 100%;
       height: 100%;
       object-fit: cover; }
   .conference__cameras--controls {
