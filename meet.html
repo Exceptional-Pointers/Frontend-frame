@@ -9,10 +9,11 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.svg" />
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- ======== CSS here ======== -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel=" stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/lineicons.css" />
     <link rel="stylesheet" href="assets/css/animate.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -36,29 +37,6 @@
         </div>
     </div>
 
-    <!-- Meet Share Info Modal -->
-    <div class="conference__info">
-        <div class="conference__info-close custom-btn-google"><i class="lni lni-close"></i></div>
-        <h4 class="conference__info-title">Your meeting's ready</h4>
-        <button class="btn custom-btn-primary conference__info-adduser">
-            <i class="lni lni-user"></i>Add others
-        </button>
-        <div class="conference__info-announcement">
-            or share the meet link with other that you want in the meet
-        </div>
-        <div class="conference__info-join_code">
-            <div type="text" class="form-control" id="codeMeetJoin">meet.fleet.com/zhj-noas-upj</div>
-            <button class="custom-btn-google" id="meetInfoCopyBtn"><i class="lni lni-empty-file"></i></button>
-        </div>
-        <div class="conference__info-notice">
-            <i class="lni lni-lock-alt"></i>
-            People who join the meet must get your permission
-            before they can join.
-        </div>
-        <div class="conference__info-joinedas">
-            Joined as <span>archana@gmail.com</span>
-        </div>
-    </div>
     <!-- Setting For Video, Mic and Speaker Selection -->
     <div class="settingsOverlay"></div>
     <div class="settings">
@@ -153,56 +131,96 @@
                     </div>
                     <ul class="conference__navigation--nav">
                         <li class="conference__navigation--nav-item">
-                            <a id="conferenceHeaderToggleBtn" class="conference__navigation--nav-link">
-                                <i class="lni lni-grid-alt"></i>
+                            <a class="conference__navigation--nav-link conferenceInfoBtn">
+                                <i class="fi fi-rr-comment-info"></i>
                             </a>
                         </li>
-                        <li class="conference__navigation--nav-item">
-                            <a class="conference__navigation--nav-link">
-                                <i class="lni lni-calendar"></i>
+                        <li class="conference__navigation--nav-item ">
+                            <a class="conference__navigation--nav-link conferenceChatBtn">
+                                <i class="fi fi-rr-comment"></i>
                             </a>
                         </li>
                         <li class="conference__navigation--nav-item">
                             <a class="conference__navigation--nav-link active">
-                                <i class="lni lni-video"></i>
+                                <i class="fi fi-rr-video-camera"></i>
                             </a>
                         </li>
                         <li class="conference__navigation--nav-item">
                             <a class="conference__navigation--nav-link">
-                                <i class="lni lni-music"></i>
+                                <i class="fi fi-rr-user"></i>
                             </a>
                         </li>
-                        <li class="conference__navigation--nav-item">
+                        <li class="conference__navigation--nav-item focusIn" id="conferenceFocusBtn">
                             <a class="conference__navigation--nav-link">
-                                <i class="lni lni-bar-chart"></i>
+                                <i class="fi fi-rr-mode-portrait"></i>
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="conference__window">
-                    <div class="conference__heading active">
+                    <div class="conference__heading expand">
                         <button class="conference__heading--toggle btn btn-light" disabled><i
-                                class="lni lni-chevron-up"></i></button>
+                                class="fi fi-rr-angle-up"></i></button>
                         <h2 class="conference__heading--title">
                             UI/UX Design weekly update
                         </h2>
                         <div class="conference__heading--tag">
                             <i class="lni lni-slideshare"></i> Design Team
                         </div>
-                        <div class="conference__heading--user">
+                        <div class="conference__heading--user conferenceInfoBtn">
                             <div class="conference__heading--user-img">
                                 <img src="./assets/img/meet/avatar-girl.png" alt="">
                             </div>
                             <p class="conference__heading--user-name">
-                                Archana <i class="lni lni-chevron-down"></i>
+                                Archana <i class="fi fi-rr-angle-down"></i>
                             </p>
                         </div>
                     </div>
                     <div class="conference__cameras">
-                        <div class="conference__cameras--layout">
+                        <div class="conference__cameras--layout layout-6">
                             <div class="custom-col">
                                 <video autoplay muted loop controls>
                                     <source src="./assets/video/Girl - 27092.mp4" type="">
+                                </video>
+                            </div>
+                            <div class="custom-col">
+                                <video autoplay muted loop controls>
+                                    <source src="./assets/video/Girl - 27092.mp4" type="">
+                                </video>
+                            </div>
+                            <div class="custom-col">
+                                <video autoplay muted loop controls>
+                                    <source src="./assets/video/Mountain - 85516.mp4" type="">
+                                </video>
+                            </div>
+                            <div class="custom-col">
+                                <video autoplay muted loop controls>
+                                    <source src="./assets/video/Girl - 27092.mp4" type="">
+                                </video>
+                            </div>
+                            <div class="custom-col">
+                                <video autoplay muted loop controls>
+                                    <source src="./assets/video/Sand - 73847.mp4" type="">
+                                </video>
+                            </div>
+                            <div class="custom-col">
+                                <video autoplay muted loop controls>
+                                    <source src="./assets/video/Girl - 27092.mp4" type="">
+                                </video>
+                            </div>
+                            <div class="custom-col">
+                                <video autoplay muted loop controls>
+                                    <source src="./assets/video/vertical-vid.mp4" type="">
+                                </video>
+                            </div>
+                            <div class="custom-col">
+                                <video autoplay muted loop controls>
+                                    <source src="./assets/video/Girl - 27092.mp4" type="">
+                                </video>
+                            </div>
+                            <div class="custom-col">
+                                <video autoplay muted loop controls>
+                                    <source src="./assets/video/Skyscrapers - 80724.mp4" type="">
                                 </video>
                             </div>
                         </div>
@@ -217,7 +235,7 @@
                                 <i class="lni lni-phone"></i>
                             </div>
                             <div class="conference__cameras--controls-focus">
-                                <i class="lni lni-frame-expand"></i>
+                                <i class="fi fi-rr-expand"></i>
                             </div>
                             <div class="dropdown conference__cameras--controls-settings">
                                 <div class="" id="conferenceControls" data-bs-toggle="dropdown" aria-expanded="false">
@@ -250,15 +268,15 @@
                     </div>
                 </div>
             </div>
-            <div class="conference-col-1">
+            <div class="conference-col-1 expand">
                 <div class="conference-rside">
                     <h4 class="conference-rside-name">Group Chat</h4>
                     <div class="conference-rside-buttons">
-                        <button class="btn custom-btn-primary btn-sm">Messages</button>
+                        <button class="btn custom-btn-primary btn-sm conferenceChatBtn">Messages</button>
                         <button class="btn btn-light btn-sm">Participants</button>
                     </div>
                 </div>
-                <div class="conference__chat">
+                <div class="conference__chat active">
                     <div class="conference__chat--items">
                         <div class="conference__chat--item">
                             <div class="conference__chat--item-icon">
@@ -297,8 +315,30 @@
                         <input type="text" placeholder="Type message" id="chatInput"
                             class="form-control conference__chat--box-input">
                         <button class="btn conference__chat--box-send">
-                            <i class="lni lni-telegram-original"></i>
+                            <i class="fi fi-rr-paper-plane"></i>
                         </button>
+                    </div>
+                </div>
+                <div class="conference__info">
+                    <h4 class="conference__info-title">Your meeting's ready</h4>
+                    <button class="btn custom-btn-primary conference__info-adduser">
+                        <i class="lni lni-user"></i>Add others
+                    </button>
+                    <div class="conference__info-announcement">
+                        or share the meet link with other that you want in the meet
+                    </div>
+                    <div class="conference__info-join_code">
+                        <div type="text" class="form-control" id="codeMeetJoin">meet.fleet.com/zhj-noas-upj</div>
+                        <button class="custom-btn-google" id="meetInfoCopyBtn"><i
+                                class="lni lni-empty-file"></i></button>
+                    </div>
+                    <div class="conference__info-notice">
+                        <i class="lni lni-lock-alt"></i>
+                        People who join the meet must get your permission
+                        before they can join.
+                    </div>
+                    <div class="conference__info-joinedas">
+                        Joined as <span>archana@gmail.com</span>
                     </div>
                 </div>
             </div>

@@ -74,13 +74,35 @@ mediaSettingCloseBtn.addEventListener('click', () => {
     cameraPageBody.classList.remove('no-scroll')
 })
 
-// conference info popup
-const userProfile = document.querySelector('.conference__heading--user')
-const conferenceInfo = document.querySelector('.conference__info')
-const conferenceInfoClose = document.querySelector('.conference__info-close')
+// Function To Changename of header on right col 1
+const conferenceRtSdName = (name) => {
+    document.querySelector('.conference-rside-name').textContent = name
+}
 
-userProfile.addEventListener('click', _ => conferenceInfo.classList.add('active'))
-conferenceInfoClose.addEventListener('click', _ => conferenceInfo.classList.remove('active'))
+
+// Function To remove Active classes from all col-1 childrens
+const rmActiveFromColsChildren = () => {
+    Array.from(document.querySelector('.conference-col-1').children).forEach(el => el.classList.contains('active') && el.classList.remove('active'))
+}
+// Chat Btn for chat window toggle
+const conferenceChatBtn = document.querySelectorAll('.conferenceChatBtn')
+const conferenceChat = document.querySelector('.conference__chat')
+
+conferenceChatBtn.forEach(btn => btn.addEventListener('click', _ => {
+    conferenceRtSdName('Group Chat')
+    rmActiveFromColsChildren()
+    conferenceChat.classList.add('active')
+}))
+
+// Info Btn for info window toggle
+const conferenceInfoBtn = document.querySelectorAll('.conferenceInfoBtn')
+const conferenceInfo = document.querySelector('.conference__info')
+
+conferenceInfoBtn.forEach(btn => btn.addEventListener('click', _ => {
+    conferenceRtSdName('Info')
+    rmActiveFromColsChildren()
+    conferenceInfo.classList.add('active')
+}))
 
 // Copy Meet code in Info Settings
 const meetCode = document.querySelector('#codeMeetJoin')
@@ -100,10 +122,29 @@ meetCodeCopyBtn.addEventListener('click', () => {
     toastList.forEach(toast => toast.show()); // This show them
 })
 
-// Conference Header Toggle
+// Conference Focus Toggle
+const conferenceFocusBtn = document.querySelector('#conferenceFocusBtn')
 const conferenceHeader = document.querySelector('.conference__heading')
-const conferenceHeaderToggleBtn = document.querySelector('#conferenceHeaderToggleBtn')
+const col_2 = document.querySelector('.conference-col-2')
+const col_1 = document.querySelector('.conference-col-1')
 
-conferenceHeaderToggleBtn.addEventListener('click', () => {
-    conferenceHeader.classList.toggle('active')
+conferenceFocusBtn.addEventListener('click', () => {
+    // Adding and removing focusIn & focusOut class to identify the action of focus or focusOut
+    if (conferenceFocusBtn.classList.contains('focusIn')) {
+        conferenceFocusBtn.classList.add('focusOut')
+        conferenceFocusBtn.classList.remove('focusIn')
+        // Expand & Collapse of Conferernce Header
+        conferenceHeader.classList.remove('expand')
+        // Expand and Collapse of Cols
+        col_2.classList.add('expand')
+        col_1.classList.remove('expand')
+    } else if (conferenceFocusBtn.classList.contains('focusOut')) {
+        conferenceFocusBtn.classList.remove('focusOut')
+        conferenceFocusBtn.classList.add('focusIn')
+        // Expand & Collapse of Conferernce Header
+        conferenceHeader.classList.add('expand')
+        // Expand and Collapse of Cols
+        col_2.classList.remove('expand')
+        col_1.classList.add('expand')
+    }
 })

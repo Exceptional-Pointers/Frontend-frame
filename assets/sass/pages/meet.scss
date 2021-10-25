@@ -5,6 +5,7 @@
         height: 100vh;
         display: flex;
         align-items: stretch;
+        position: relative;
 
         &>* {
             height: 100%;
@@ -12,16 +13,28 @@
     }
 
     &-col-2 {
-        flex-basis: 70%;
-        flex: 1;
+        flex-basis: calc(100% - 330px);
         display: flex;
-        // background: blue;
+        transition: all .5s ease;
+
+        &.expand {
+            flex-basis: 100%;
+        }
     }
 
     &-col-1 {
-        flex-basis: 330px;
+        position: absolute;
+        top: 0;
+        right: -350px;
+        width: 330px;
+        height: 100vh;
+        overflow: hidden;
         border-left: 2px solid $color-border-grey;
-        // background: orange;
+        transition: all .5s ease;
+
+        &.expand {
+            right: 0;
+        }
     }
 
     &__navigation {
@@ -85,16 +98,20 @@
         flex: 1;
         display: flex;
         flex-direction: column;
+        overflow: hidden;
     }
 
     &__heading {
         border-bottom: 2px solid $color-border-grey;
-        padding: 15.5px;
-        display: none;
+        display: flex;
         align-items: center;
+        padding: 0 15px;
+        height: 0;
+        overflow: hidden;
+        transition: all .5s ease;
 
-        &.active {
-            display: flex;
+        &.expand {
+            height: 70px;
         }
 
         &--toggle {
@@ -146,6 +163,12 @@
             &-name {
                 margin: 0 5px;
                 font-weight: 500;
+                display: flex;
+                align-items: center;
+
+                i {
+                    margin-left: 5px;
+                }
             }
 
 
@@ -154,24 +177,52 @@
 
     &__cameras {
         flex: 1;
+        height: 100%;
+        overflow: hidden;
         background: #fff;
-        padding: 25px;
+        padding: 10px 0;
         position: relative;
 
         &--layout {
             height: 100%;
             width: 100%;
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
+            align-content: center;
+            justify-content: center;
             overflow: hidden;
 
-            .custom-col-1 {}
+            .custom-col {
+                padding: 5px;
+                // background: #000;
 
+                &:not(:last-child) {
+                    flex-grow: 1;
+                }
+
+                &:first-child {
+                    flex-grow: 1;
+                }
+            }
+
+            &.layout-4 {
+                .custom-col {
+                    flex-basis: 50%;
+                }
+            }
+
+            &.layout-6 {
+                .custom-col {
+                    flex-basis: 32%;
+                    flex-grow: 0;
+                    height: 33%;
+                }
+            }
 
             video {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
             }
         }
 
@@ -240,7 +291,8 @@
     &-rside {
         display: flex;
         align-items: center;
-        padding: 20px 10px;
+        height: 70px;
+        padding: 0 15px;
         border-bottom: 2px solid $color-border-grey;
 
         &-name {
@@ -261,6 +313,20 @@
     }
 
     &__chat {
+        display: none;
+
+        &.active {
+            height: calc(100% - 70px);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        &--items {
+            overflow: auto;
+            flex: 1;
+        }
+
         &--item {
             display: flex;
             align-items: center;
@@ -354,19 +420,10 @@
 }
 
 .conference__info {
-    position: fixed;
-    top: 0px;
-    right: -350px;
-    z-index: 2;
-    width: 330px;
-    height: 100%;
+    display: none;
     background: #fff;
-    box-shadow: 0 0 10px #afb7ca;
     padding: 25px 20px;
-    border-radius: 8px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all .3s;
+    height: calc(100% - 70px);
 
     &-title {
         font-size: 18px;
@@ -439,22 +496,10 @@
         }
     }
 
-    &-close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 45px;
-        height: 45px;
-        cursor: pointer;
-        @include flex;
-    }
 
     &.active {
-        top: 0px;
-        right: 0px;
         display: flex;
         flex-direction: column;
-        opacity: 1;
-        visibility: visible;
+        flex: 1;
     }
 }
