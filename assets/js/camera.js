@@ -1,3 +1,7 @@
+// *******************************************************************
+// TODO: Pre Conference
+// *******************************************************************
+
 // Video and audio selectors
 const video = document.querySelector('video');
 const audio = document.querySelector('audio');
@@ -56,6 +60,12 @@ navigator.mediaDevices.getUserMedia({
         console.log(err);
     });
 
+// *******************************************************************
+// TODO: Main Conference Begins
+// *******************************************************************
+
+// ! Selectors
+
 // Media Devices Setting Toggle
 const cameraPageBody = document.querySelector('.camera-page-body')
 const mediaSettingToggleBtn = document.querySelector('.mediaSettingsToggle')
@@ -63,6 +73,93 @@ const mediaSettingCloseBtn = document.querySelector('.settings__close')
 const mediaSettingOverlay = document.querySelector('.settingsOverlay')
 const mediaSetting = document.querySelector('.settings')
 
+// SideNav Btns 
+const sideNav = document.querySelector('.conference__navigation--nav')
+const sideNavLinks = sideNav.querySelectorAll('.conference__navigation--nav-link')
+const sideNavInfoBtn = document.querySelector('.conferenceInfoBtn')
+const sideNavChatBtn = document.querySelector('.conferenceChatBtn')
+const sideNavParticipantBtn = document.querySelector('.conferenceParticipantBtn')
+
+// Conference Focus Toggle
+const conferenceFocusBtn = document.querySelector('#conferenceFocusBtn')
+const conferenceHeader = document.querySelector('.conference__heading')
+const col_2 = document.querySelector('.conference-col-2')
+const col_1 = document.querySelector('.conference-col-1')
+
+// Conference Rside comps
+const col1 = document.querySelector('.conference-col-1')
+const rsideHeaderTitle = document.querySelector('.conference-rside-name')
+const conferenceChatBtnRSd = document.querySelector('.chatBtnRsd')
+const conferenceParticipantBtnRSd = document.querySelector('.participantBtnRsd')
+const conferenceChat = document.querySelector('.conference__chat')
+const conferenceInfo = document.querySelector('.conference__info')
+const conferenceParticipant = document.querySelector('.conference__participants')
+
+// Info Meet Code
+const meetCode = document.querySelector('#codeMeetJoin')
+const meetCodeUrl = document.querySelector('#codeMeetJoin')
+const meetCodeCopyBtn = document.querySelector('#meetInfoCopyBtn')
+
+// Chat Btns for chat window toggle
+const conferenceChatBtns = document.querySelectorAll('.conferenceChatBtn')
+
+// Participants Btns for chat window toggle
+const conferenceParticipantBtns = document.querySelectorAll('.conferenceParticipantBtn')
+
+// Info Btns for info window toggle
+const conferenceInfoBtns = document.querySelectorAll('.conferenceInfoBtn')
+
+// ! Functions
+
+// * 1.Function To Changename of header on right col 1
+const conferenceRtSdName = (name) => {
+    rsideHeaderTitle.textContent = name
+}
+
+// * 2.Function To remove Active classes from all col-1 childrens
+const rmActiveFromColsChildren = () => {
+    Array.from(col1.children).forEach(el => el.classList.contains('active') && el.classList.remove('active'))
+}
+
+// * 3.Function To remove Active classes from all SideNav Links
+const rmActiveFromSideNavLinks = () => {
+    sideNavLinks.forEach(node => node.classList.remove('active'))
+}
+
+// * 4.Function to remove one class and add other class
+const rmAndAddClass = (elem, add, remove) => {
+    elem.classList.add(add)
+    elem.classList.remove(remove)
+}
+
+// * 5.Function to add focus on Cam Layout
+const addFocusOnCamLayuot = () => {
+    // Adding and removing focusIn & focusOut class to identify the action of focus or focusOut
+    if (conferenceFocusBtn.classList.contains('focusIn')) {
+        conferenceFocusBtn.classList.add('active')
+        conferenceFocusBtn.classList.add('focusOut')
+        conferenceFocusBtn.classList.remove('focusIn')
+        // Expand & Collapse of Conferernce Header
+        conferenceHeader.classList.remove('expand')
+        // Expand and Collapse of Cols
+        col_2.classList.add('expand')
+        col_1.classList.remove('expand')
+    } else if (conferenceFocusBtn.classList.contains('focusOut')) {
+        conferenceFocusBtn.classList.remove('active')
+        conferenceFocusBtn.classList.remove('focusOut')
+        conferenceFocusBtn.classList.add('focusIn')
+        // Expand & Collapse of Conferernce Header
+        conferenceHeader.classList.add('expand')
+        // Expand and Collapse of Cols
+        col_2.classList.remove('expand')
+        col_1.classList.add('expand')
+    }
+}
+
+
+// ! Event Listners
+
+// * 1.Media Device Settings
 mediaSettingToggleBtn.addEventListener('click', () => {
     mediaSetting.classList.add('active')
     mediaSettingOverlay.classList.add('active')
@@ -74,41 +171,40 @@ mediaSettingCloseBtn.addEventListener('click', () => {
     cameraPageBody.classList.remove('no-scroll')
 })
 
-// Function To Changename of header on right col 1
-const conferenceRtSdName = (name) => {
-    document.querySelector('.conference-rside-name').textContent = name
-}
-
-
-// Function To remove Active classes from all col-1 childrens
-const rmActiveFromColsChildren = () => {
-    Array.from(document.querySelector('.conference-col-1').children).forEach(el => el.classList.contains('active') && el.classList.remove('active'))
-}
-// Chat Btn for chat window toggle
-const conferenceChatBtn = document.querySelectorAll('.conferenceChatBtn')
-const conferenceChat = document.querySelector('.conference__chat')
-
-conferenceChatBtn.forEach(btn => btn.addEventListener('click', _ => {
+// * 2.Chat Window Rside
+conferenceChatBtns.forEach(btn => btn.addEventListener('click', _ => {
+    rmActiveFromSideNavLinks()
+    sideNavChatBtn.classList.add('active')
+    rmAndAddClass(conferenceChatBtnRSd, 'custom-btn-primary', 'btn-light')
+    rmAndAddClass(conferenceParticipantBtnRSd, 'btn-light', 'custom-btn-primary')
     conferenceRtSdName('Group Chat')
     rmActiveFromColsChildren()
     conferenceChat.classList.add('active')
 }))
 
-// Info Btn for info window toggle
-const conferenceInfoBtn = document.querySelectorAll('.conferenceInfoBtn')
-const conferenceInfo = document.querySelector('.conference__info')
+// * 3.Participants Window Rside
+conferenceParticipantBtns.forEach(btn => btn.addEventListener('click', _ => {
+    rmActiveFromSideNavLinks()
+    sideNavParticipantBtn.classList.add('active')
+    rmAndAddClass(conferenceParticipantBtnRSd, 'custom-btn-primary', 'btn-light')
+    rmAndAddClass(conferenceChatBtnRSd, 'btn-light', 'custom-btn-primary')
+    conferenceRtSdName('People')
+    rmActiveFromColsChildren()
+    conferenceParticipant.classList.add('active')
+}))
 
-conferenceInfoBtn.forEach(btn => btn.addEventListener('click', _ => {
+// * 4.Info Window Rside
+conferenceInfoBtns.forEach(btn => btn.addEventListener('click', _ => {
+    rmActiveFromSideNavLinks()
+    sideNavInfoBtn.classList.add('active')
+    conferenceChatBtnRSd.classList.remove('custom-btn-primary')
     conferenceRtSdName('Info')
+    rmAndAddClass(conferenceChatBtnRSd, 'btn-light', 'custom-btn-primary')
     rmActiveFromColsChildren()
     conferenceInfo.classList.add('active')
 }))
 
-// Copy Meet code in Info Settings
-const meetCode = document.querySelector('#codeMeetJoin')
-const meetCodeUrl = document.querySelector('#codeMeetJoin')
-const meetCodeCopyBtn = document.querySelector('#meetInfoCopyBtn')
-
+// * 5.Copy Meet Code
 meetCodeCopyBtn.addEventListener('click', () => {
 
     /* Copy the text inside the text field */
@@ -122,29 +218,18 @@ meetCodeCopyBtn.addEventListener('click', () => {
     toastList.forEach(toast => toast.show()); // This show them
 })
 
-// Conference Focus Toggle
-const conferenceFocusBtn = document.querySelector('#conferenceFocusBtn')
-const conferenceHeader = document.querySelector('.conference__heading')
-const col_2 = document.querySelector('.conference-col-2')
-const col_1 = document.querySelector('.conference-col-1')
 
+// * 6.Focus on Cam Layout
 conferenceFocusBtn.addEventListener('click', () => {
-    // Adding and removing focusIn & focusOut class to identify the action of focus or focusOut
-    if (conferenceFocusBtn.classList.contains('focusIn')) {
-        conferenceFocusBtn.classList.add('focusOut')
-        conferenceFocusBtn.classList.remove('focusIn')
-        // Expand & Collapse of Conferernce Header
-        conferenceHeader.classList.remove('expand')
-        // Expand and Collapse of Cols
-        col_2.classList.add('expand')
-        col_1.classList.remove('expand')
-    } else if (conferenceFocusBtn.classList.contains('focusOut')) {
-        conferenceFocusBtn.classList.remove('focusOut')
-        conferenceFocusBtn.classList.add('focusIn')
-        // Expand & Collapse of Conferernce Header
-        conferenceHeader.classList.add('expand')
-        // Expand and Collapse of Cols
-        col_2.classList.remove('expand')
-        col_1.classList.add('expand')
-    }
+    rmActiveFromSideNavLinks()
+    addFocusOnCamLayuot()
+})
+
+// * 7.Focus on Cam Layout to be removed on side Nav links click
+Array.from(sideNavLinks).filter(el => el != conferenceFocusBtn).forEach(el => {
+    el.addEventListener('click', _ => {
+        if (conferenceFocusBtn.classList.contains('focusOut')) {
+            addFocusOnCamLayuot()
+        }
+    })
 })

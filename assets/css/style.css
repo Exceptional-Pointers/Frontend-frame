@@ -55,8 +55,7 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
-  flex-direction: column;
-  display: none; }
+  flex-direction: column; }
   .stream__header p {
     margin-bottom: 5px;
     margin-top: 2rem; }
@@ -210,358 +209,400 @@ body {
         display: block;
     } */ }
 
-.conference-container {
-  height: 100vh;
-  display: flex;
-  align-items: stretch;
-  position: relative; }
-  .conference-container > * {
-    height: 100%; }
-
-.conference-col-2 {
-  flex-basis: calc(100% - 330px);
-  display: flex;
-  transition: all .5s ease; }
-  .conference-col-2.expand {
-    flex-basis: 100%; }
-
-.conference-col-1 {
-  position: absolute;
-  top: 0;
-  right: -350px;
-  width: 330px;
-  height: 100vh;
-  overflow: hidden;
-  border-left: 2px solid #d1d1d163;
-  transition: all .5s ease; }
-  .conference-col-1.expand {
-    right: 0; }
-
-.conference__navigation {
-  flex-basis: 75px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  background: #fff;
-  border-right: 2px solid #d1d1d163; }
-  .conference__navigation--logo {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%); }
-    .conference__navigation--logo img {
-      width: 40px; }
-  .conference__navigation--nav {
-    list-style: none;
-    padding: 0; }
-    .conference__navigation--nav-item {
-      border-radius: 5px;
-      overflow: hidden; }
-      .conference__navigation--nav-item:not(:last-child) {
-        margin-bottom: 10px; }
-    .conference__navigation--nav-link {
-      text-decoration: none;
-      font-size: 22px;
-      color: #5f5f5f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      padding: 10px;
-      cursor: pointer; }
-      .conference__navigation--nav-link:hover, .conference__navigation--nav-link.active {
-        background: #d0ece9;
-        color: #0e9e8b; }
-
-.conference__window {
-  background: #fff;
-  flex-basis: 100%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden; }
-
-.conference__heading {
-  border-bottom: 2px solid #d1d1d163;
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-  height: 0;
-  overflow: hidden;
-  transition: all .5s ease; }
-  .conference__heading.expand {
-    height: 70px; }
-  .conference__heading--toggle {
-    margin-right: 10px;
-    border: 3px solid #f1f1f1; }
-  .conference__heading--title {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0; }
-  .conference__heading--tag {
-    padding: 5px 15px;
-    border-radius: 20px;
-    color: #662cad;
-    font-weight: 600;
-    background: #dbd5f0;
-    margin-left: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center; }
-    .conference__heading--tag i {
-      font-size: 20px;
-      margin-right: 10px; }
-  .conference__heading--user {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    cursor: pointer;
-    position: relative; }
-    .conference__heading--user-img {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      overflow: hidden;
-      background: #d6d6d6; }
-      .conference__heading--user-img img {
-        width: 100%;
-        height: 100%; }
-    .conference__heading--user-name {
-      margin: 0 5px;
-      font-weight: 500;
-      display: flex;
-      align-items: center; }
-      .conference__heading--user-name i {
-        margin-left: 5px; }
-
-.conference__cameras {
-  flex: 1;
-  height: 100%;
-  overflow: hidden;
-  background: #fff;
-  padding: 10px 0;
-  position: relative; }
-  .conference__cameras--layout {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    overflow: hidden; }
-    .conference__cameras--layout .custom-col {
-      padding: 5px; }
-      .conference__cameras--layout .custom-col:not(:last-child) {
-        flex-grow: 1; }
-      .conference__cameras--layout .custom-col:first-child {
-        flex-grow: 1; }
-    .conference__cameras--layout.layout-4 .custom-col {
-      flex-basis: 50%; }
-    .conference__cameras--layout.layout-6 .custom-col {
-      flex-basis: 32%;
-      flex-grow: 0;
-      height: 33%; }
-    .conference__cameras--layout video {
-      width: 100%;
-      height: 100%; }
-  .conference__cameras--controls {
-    position: absolute;
-    bottom: 45px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    z-index: 3; }
-    .conference__cameras--controls .dropdown-item {
-      display: flex;
-      align-items: center;
-      cursor: pointer; }
-      .conference__cameras--controls .dropdown-item i {
-        margin-right: 10px;
-        font-size: 20px; }
-    .conference__cameras--controls > * {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      backdrop-filter: blur(5px);
-      background: #4747479e;
-      color: #fff;
-      transition: all .3s; }
-      .conference__cameras--controls > *:hover {
-        background: #474747e1;
-        backdrop-filter: blur(10px); }
-      .conference__cameras--controls > *:not(:last-child) {
-        margin-right: 15px; }
-    .conference__cameras--controls-end {
-      border-radius: 15px;
-      background: #ff124dc7;
-      width: 45px;
-      height: 45px; }
-      .conference__cameras--controls-end i {
-        font-size: 25px; }
-      .conference__cameras--controls-end:hover {
-        background: #ff124d;
-        backdrop-filter: blur(10px); }
-
-.conference-rside {
-  display: flex;
-  align-items: center;
-  height: 70px;
-  padding: 0 15px;
-  border-bottom: 2px solid #d1d1d163; }
-  .conference-rside-name {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0;
-    color: #5B657E; }
-  .conference-rside-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto; }
-    .conference-rside-buttons button:last-child {
-      margin-left: 10px; }
-
-.conference__chat {
+.conference {
   display: none; }
-  .conference__chat.active {
-    height: calc(100% - 70px);
+  .conference-container {
+    height: 100vh;
+    display: flex;
+    align-items: stretch;
+    position: relative; }
+    .conference-container > * {
+      height: 100%; }
+  .conference-col-2 {
+    flex-basis: calc(100% - 330px);
+    display: flex;
+    transition: all .5s ease; }
+    .conference-col-2.expand {
+      flex-basis: 100%; }
+  .conference-col-1 {
+    position: absolute;
+    top: 0;
+    right: -350px;
+    width: 330px;
+    height: 100vh;
     overflow: hidden;
-    display: flex;
-    flex-direction: column; }
-  .conference__chat--items {
-    overflow: auto;
-    flex: 1; }
-  .conference__chat--item {
-    display: flex;
-    align-items: center;
+    border-left: 2px solid #d1d1d163;
+    transition: all .5s ease; }
+    .conference-col-1.expand {
+      right: 0; }
+  .conference__navigation {
+    flex-basis: 75px;
     position: relative;
-    padding: 10px;
-    margin-bottom: 15px; }
-    .conference__chat--item-icon {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-right: 10px; }
-      .conference__chat--item-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; }
-    .conference__chat--item-message {
-      padding: 15px 15px 25px;
-      background: #fff;
-      box-shadow: 0 0 10px #8f8f8f41;
-      color: #353535;
-      line-height: 1.3;
-      max-width: calc(100% - 60px);
-      border-radius: 10px; }
-    .conference__chat--item-detail {
-      color: #5c5c5c;
-      position: absolute;
-      bottom: -13px;
-      right: 15px;
-      font-size: 13px;
-      font-weight: 500; }
-    .conference__chat--item-user {
-      flex-direction: row-reverse; }
-      .conference__chat--item-user .conference__chat--item-icon {
-        margin: 0;
-        margin-left: 10px; }
-      .conference__chat--item-user .conference__chat--item-message {
-        background: #e5e8f0; }
-      .conference__chat--item-user .conference__chat--item-detail {
-        right: unset;
-        left: 15px; }
-  .conference__chat--box {
-    display: flex;
-    padding: 15px;
-    align-items: center;
-    background: #ebfffc; }
-    .conference__chat--box-input {
-      width: 80%; }
-    .conference__chat--box-send {
-      border-radius: 50%;
-      padding: 0;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 10px;
-      background: #0e9e8b;
-      color: #fff; }
-      .conference__chat--box-send:hover {
-        color: #fff;
-        background: #007969; }
-
-.conference__info {
-  display: none;
-  background: #fff;
-  padding: 25px 20px;
-  height: calc(100% - 70px); }
-  .conference__info-title {
-    font-size: 18px;
-    font-weight: 600; }
-  .conference__info-adduser {
-    margin-top: 15px; }
-    .conference__info-adduser i {
-      margin-right: 5px; }
-  .conference__info-announcement {
-    font-size: 16px;
-    font-weight: 500;
-    color: #353535;
-    line-height: 1.3;
-    margin-top: 15px; }
-  .conference__info-join_code {
-    position: relative;
-    margin-top: 15px; }
-    .conference__info-join_code .form-control {
-      background: #eeeded;
-      border: unset;
-      padding-right: 40px; }
-    .conference__info-join_code button {
-      position: absolute;
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      right: 5px;
-      top: 50%;
-      transform: translateY(-50%); }
-  .conference__info-notice {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.1;
-    margin-top: 15px; }
-    .conference__info-notice i {
-      padding: 10px;
-      font-size: 16px;
-      color: #fff;
-      background: #007969;
-      border-radius: 50%;
-      margin-right: 5px; }
-  .conference__info-joinedas {
-    font-size: 14px;
-    color: #353535;
-    line-height: 1.3;
-    margin-top: auto; }
-    .conference__info-joinedas span {
-      font-weight: 600; }
-  .conference__info.active {
     display: flex;
     flex-direction: column;
-    flex: 1; }
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    background: #fff;
+    border-right: 2px solid #d1d1d163; }
+    .conference__navigation--logo {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%); }
+      .conference__navigation--logo img {
+        width: 40px; }
+    .conference__navigation--nav {
+      list-style: none;
+      padding: 0; }
+      .conference__navigation--nav-item {
+        border-radius: 5px;
+        overflow: hidden; }
+        .conference__navigation--nav-item:not(:last-child) {
+          margin-bottom: 10px; }
+      .conference__navigation--nav-link {
+        text-decoration: none;
+        font-size: 22px;
+        color: #5f5f5f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        cursor: pointer; }
+        .conference__navigation--nav-link:hover, .conference__navigation--nav-link.active {
+          background: #d0ece9;
+          color: #0e9e8b; }
+  .conference__window {
+    background: #fff;
+    flex-basis: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; }
+  .conference__heading {
+    border-bottom: 2px solid #d1d1d163;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    height: 0;
+    overflow: hidden;
+    transition: all .5s ease; }
+    .conference__heading.expand {
+      height: 70px; }
+    .conference__heading--toggle {
+      margin-right: 10px;
+      border: 3px solid #f1f1f1; }
+    .conference__heading--title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0; }
+    .conference__heading--tag {
+      padding: 5px 15px;
+      border-radius: 20px;
+      color: #662cad;
+      font-weight: 600;
+      background: #dbd5f0;
+      margin-left: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .conference__heading--tag i {
+        font-size: 20px;
+        margin-right: 10px; }
+    .conference__heading--user {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      cursor: pointer;
+      position: relative; }
+      .conference__heading--user-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #d6d6d6; }
+        .conference__heading--user-img img {
+          width: 100%;
+          height: 100%; }
+      .conference__heading--user-name {
+        margin: 0 5px;
+        font-weight: 500;
+        display: flex;
+        align-items: center; }
+        .conference__heading--user-name i {
+          margin-left: 5px; }
+  .conference__cameras {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+    padding: 10px 0;
+    position: relative; }
+    .conference__cameras--layout {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      overflow: hidden; }
+      .conference__cameras--layout .custom-col {
+        padding: 5px; }
+        .conference__cameras--layout .custom-col:not(:last-child) {
+          flex-grow: 1; }
+        .conference__cameras--layout .custom-col:first-child {
+          flex-grow: 1; }
+      .conference__cameras--layout.layout-4 .custom-col {
+        flex-basis: 50%; }
+      .conference__cameras--layout.layout-6 .custom-col {
+        flex-basis: 32%;
+        flex-grow: 0;
+        height: 33%; }
+      .conference__cameras--layout video {
+        width: 100%;
+        height: 100%; }
+    .conference__cameras--controls {
+      position: absolute;
+      bottom: 45px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      z-index: 3; }
+      .conference__cameras--controls .dropdown-item {
+        display: flex;
+        align-items: center;
+        cursor: pointer; }
+        .conference__cameras--controls .dropdown-item i {
+          margin-right: 10px;
+          font-size: 20px; }
+      .conference__cameras--controls > * {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        backdrop-filter: blur(5px);
+        background: #4747479e;
+        color: #fff;
+        transition: all .3s; }
+        .conference__cameras--controls > *:hover {
+          background: #474747e1;
+          backdrop-filter: blur(10px); }
+        .conference__cameras--controls > *:not(:last-child) {
+          margin-right: 15px; }
+      .conference__cameras--controls-end {
+        border-radius: 15px;
+        background: #ff124dc7;
+        width: 45px;
+        height: 45px; }
+        .conference__cameras--controls-end i {
+          font-size: 25px; }
+        .conference__cameras--controls-end:hover {
+          background: #ff124d;
+          backdrop-filter: blur(10px); }
+  .conference-rside {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding: 0 15px;
+    border-bottom: 2px solid #d1d1d163; }
+    .conference-rside-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      color: #5B657E; }
+    .conference-rside-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto; }
+      .conference-rside-buttons button:last-child {
+        margin-left: 10px; }
+  .conference__chat {
+    display: none; }
+    .conference__chat.active {
+      height: calc(100% - 70px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column; }
+    .conference__chat--items {
+      overflow: auto;
+      flex: 1; }
+    .conference__chat--item {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 10px;
+      margin-bottom: 15px; }
+      .conference__chat--item-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 10px; }
+        .conference__chat--item-icon img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; }
+      .conference__chat--item-message {
+        padding: 15px 15px 25px;
+        background: #fff;
+        box-shadow: 0 0 10px #8f8f8f41;
+        color: #353535;
+        line-height: 1.3;
+        max-width: calc(100% - 60px);
+        border-radius: 10px; }
+      .conference__chat--item-detail {
+        color: #5c5c5c;
+        position: absolute;
+        bottom: -13px;
+        right: 15px;
+        font-size: 13px;
+        font-weight: 500; }
+      .conference__chat--item-user {
+        flex-direction: row-reverse; }
+        .conference__chat--item-user .conference__chat--item-icon {
+          margin: 0;
+          margin-left: 10px; }
+        .conference__chat--item-user .conference__chat--item-message {
+          background: #e5e8f0; }
+        .conference__chat--item-user .conference__chat--item-detail {
+          right: unset;
+          left: 15px; }
+    .conference__chat--box {
+      display: flex;
+      padding: 15px;
+      align-items: center;
+      background: #ebfffc; }
+      .conference__chat--box-input {
+        width: 80%; }
+      .conference__chat--box-send {
+        border-radius: 50%;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+        background: #0e9e8b;
+        color: #fff; }
+        .conference__chat--box-send:hover {
+          color: #fff;
+          background: #007969; }
+  .conference__info {
+    display: none;
+    background: #fff;
+    padding: 25px 20px;
+    height: calc(100% - 70px); }
+    .conference__info-title {
+      font-size: 18px;
+      font-weight: 600; }
+    .conference__info-adduser {
+      margin-top: 15px; }
+      .conference__info-adduser i {
+        margin-right: 5px; }
+    .conference__info-announcement {
+      font-size: 16px;
+      font-weight: 500;
+      color: #353535;
+      line-height: 1.3;
+      margin-top: 15px; }
+    .conference__info-join_code {
+      position: relative;
+      margin-top: 15px; }
+      .conference__info-join_code .form-control {
+        background: #eeeded;
+        border: unset;
+        padding-right: 40px; }
+      .conference__info-join_code button {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%); }
+    .conference__info-notice {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-top: 15px; }
+      .conference__info-notice i {
+        padding: 10px;
+        font-size: 16px;
+        color: #fff;
+        background: #007969;
+        border-radius: 50%;
+        margin-right: 5px; }
+    .conference__info-joinedas {
+      font-size: 14px;
+      color: #353535;
+      line-height: 1.3;
+      margin-top: auto; }
+      .conference__info-joinedas span {
+        font-weight: 600; }
+    .conference__info.active {
+      display: flex;
+      flex-direction: column;
+      flex: 1; }
+  .conference__participants {
+    display: none;
+    background: #fff;
+    padding: 25px 20px;
+    height: calc(100% - 70px); }
+    .conference__participants--title {
+      font-size: 14px; }
+    .conference__participants--item {
+      display: flex;
+      align-items: center;
+      padding: 8px 15px;
+      border-radius: 5px;
+      background: whitesmoke;
+      margin-bottom: 15px; }
+      .conference__participants--item-img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 20px; }
+        .conference__participants--item-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; }
+      .conference__participants--item-desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+      .conference__participants--item-name {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1; }
+      .conference__participants--item-subname {
+        font-size: 12px;
+        font-weight: 600;
+        color: #007969; }
+      .conference__participants--item-controls {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        font-size: 20px; }
+      .conference__participants--item-mute {
+        margin-right: 15px;
+        cursor: pointer; }
+      .conference__participants--item-pin {
+        cursor: pointer; }
+    .conference__participants.active {
+      display: flex;
+      flex-direction: column; }

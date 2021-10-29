@@ -39,7 +39,7 @@
 
     <!-- Setting For Video, Mic and Speaker Selection -->
     <div class="settingsOverlay"></div>
-    <div class="settings">
+    <div class="settings active">
         <div class="settings__close">
             <i class="lni lni-close"></i>
         </div>
@@ -146,12 +146,12 @@
                             </a>
                         </li>
                         <li class="conference__navigation--nav-item">
-                            <a class="conference__navigation--nav-link">
+                            <a class="conference__navigation--nav-link conferenceParticipantBtn">
                                 <i class="fi fi-rr-user"></i>
                             </a>
                         </li>
-                        <li class="conference__navigation--nav-item focusIn" id="conferenceFocusBtn">
-                            <a class="conference__navigation--nav-link">
+                        <li class="conference__navigation--nav-item">
+                            <a class="conference__navigation--nav-link focusIn" id="conferenceFocusBtn">
                                 <i class="fi fi-rr-mode-portrait"></i>
                             </a>
                         </li>
@@ -272,8 +272,9 @@
                 <div class="conference-rside">
                     <h4 class="conference-rside-name">Group Chat</h4>
                     <div class="conference-rside-buttons">
-                        <button class="btn custom-btn-primary btn-sm conferenceChatBtn">Messages</button>
-                        <button class="btn btn-light btn-sm">Participants</button>
+                        <button class="btn custom-btn-primary btn-sm chatBtnRsd conferenceChatBtn">Messages</button>
+                        <button
+                            class="btn btn-light btn-sm participantBtnRsd conferenceParticipantBtn">Participants</button>
                     </div>
                 </div>
                 <div class="conference__chat active">
@@ -339,6 +340,50 @@
                     </div>
                     <div class="conference__info-joinedas">
                         Joined as <span>archana@gmail.com</span>
+                    </div>
+                </div>
+                <div class="conference__participants">
+                    <p class="conference__participants--title">In Call</p>
+                    <div class="conference__participants--items">
+                        <div class="conference__participants--item">
+                            <div class="conference__participants--item-img">
+                                <img src="./assets/img/meet/user-1.jpg" alt="">
+                            </div>
+                            <div class="conference__participants--item-desc">
+                                <div class="conference__participants--item-name">Archana Singh</div>
+                                <div class="conference__participants--item-subname">Meeting Host</div>
+                            </div>
+                            <div class="conference__participants--item-controls">
+                                <div class="conference__participants--item-mute"><i class="lni lni-mic"></i></div>
+                                <div class="conference__participants--item-pin"><i class="lni lni-pin"></i></div>
+                            </div>
+                        </div>
+                        <div class="conference__participants--item">
+                            <div class="conference__participants--item-img">
+                                <img src="./assets/img/meet/user-5.jpg" alt="">
+                            </div>
+                            <div class="conference__participants--item-desc">
+                                <div class="conference__participants--item-name">Kalpit Sharma</div>
+                                <div class="conference__participants--item-subname">User</div>
+                            </div>
+                            <div class="conference__participants--item-controls">
+                                <div class="conference__participants--item-mute"><i class="lni lni-mic"></i></div>
+                                <div class="conference__participants--item-pin"><i class="lni lni-pin"></i></div>
+                            </div>
+                        </div>
+                        <div class="conference__participants--item">
+                            <div class="conference__participants--item-img">
+                                <img src="./assets/img/meet/user-3.jpg" alt="">
+                            </div>
+                            <div class="conference__participants--item-desc">
+                                <div class="conference__participants--item-name">David Jane</div>
+                                <div class="conference__participants--item-subname">User</div>
+                            </div>
+                            <div class="conference__participants--item-controls">
+                                <div class="conference__participants--item-mute"><i class="lni lni-mic"></i></div>
+                                <div class="conference__participants--item-pin"><i class="lni lni-pin"></i></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
